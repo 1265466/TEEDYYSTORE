@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>TEEDYY STORE | Shop ACC Free Fire</title>
+    <title>TEEDYY STORE | Shop ACC Game</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -31,9 +31,7 @@
         @keyframes slideInRight { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0); } }
         @keyframes slideInLeft { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
         @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(155,89,182,0.4); } 50% { box-shadow: 0 0 0 15px rgba(155,89,182,0); } }
-        @keyframes shimmer { 0% { background-position: -1000px 0; } 100% { background-position: 1000px 0; } }
-        @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
-        @keyframes glow { 0% { box-shadow: 0 0 5px var(--accent); } 100% { box-shadow: 0 0 20px var(--accent); } }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
 
         /* Toast Notification */
         .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: var(--bg-card); border-radius: 50px; padding: 12px 20px; display: flex; align-items: center; gap: 10px; z-index: 3000; animation: slideInUp 0.3s ease; border-left: 4px solid var(--accent); box-shadow: 0 10px 30px rgba(0,0,0,0.3); font-size: 14px; }
@@ -81,22 +79,22 @@
 
         .product-card { animation: fadeInUp 0.5s ease; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); background: var(--bg-card); border-radius: 20px; overflow: hidden; border: 1px solid var(--border); cursor: pointer; }
         .product-card:hover { transform: translateY(-6px) scale(1.01); border-color: var(--accent); box-shadow: 0 12px 28px rgba(155,89,182,0.2); }
-        .product-img { width: 100%; height: 190px; object-fit: cover; transition: transform 0.5s ease; }
+        .product-img { width: 100%; height: 190px; object-fit: cover; transition: transform 0.5s ease; background: #1a1a2e; }
         .product-card:hover .product-img { transform: scale(1.05); }
         .product-info { padding: 14px; }
         .product-name { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
         .product-price { color: var(--accent); font-weight: 800; font-size: 20px; }
         .buy-btn { background: linear-gradient(135deg, var(--accent), var(--accent-glow)); border: none; color: white; padding: 8px; width: 100%; border-radius: 40px; cursor: pointer; transition: all 0.3s ease; font-weight: 600; font-size: 13px; }
 
-        /* Header thu gọn */
         .shop-info-header { background: var(--bg-secondary); padding: 12px 5% 10px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; border-bottom: 1px solid var(--border); animation: fadeInUp 0.5s ease; font-size: 13px; }
         .shop-name { font-weight: 600; letter-spacing: 0.5px; }
         .shop-name i { color: var(--accent); margin-right: 6px; }
         .support-info i { margin-right: 6px; color: var(--accent); }
         .support-info span { background: var(--accent); padding: 3px 10px; border-radius: 30px; margin-left: 10px; font-size: 11px; font-weight: 600; }
 
-        .categories-tab { background: var(--bg-secondary); padding: 0 5%; border-bottom: 1px solid var(--border); display: flex; gap: 25px; overflow-x: auto; animation: fadeInUp 0.6s ease; }
-        .cat-tab { padding: 12px 0 10px; font-weight: 600; font-size: 15px; cursor: pointer; border-bottom: 3px solid transparent; color: var(--text-muted); transition: all 0.3s ease; white-space: nowrap; }
+        .categories-tab { background: var(--bg-secondary); padding: 0 5%; border-bottom: 1px solid var(--border); display: flex; gap: 20px; overflow-x: auto; animation: fadeInUp 0.6s ease; scrollbar-width: thin; }
+        .cat-tab { padding: 12px 0 10px; font-weight: 600; font-size: 14px; cursor: pointer; border-bottom: 3px solid transparent; color: var(--text-muted); transition: all 0.3s ease; white-space: nowrap; }
+        .cat-tab i { margin-right: 6px; }
         .cat-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
         .cat-tab:hover { color: var(--accent-light); transform: translateY(-2px); }
 
@@ -118,6 +116,7 @@
             .message-btn { bottom: 20px; right: 20px; width: 48px; height: 48px; }
             .user-menu { width: 260px; right: 10px; top: 60px; }
             .toast { width: 90%; font-size: 12px; padding: 10px 16px; }
+            .cat-tab { font-size: 12px; gap: 15px; }
         }
     </style>
 </head>
@@ -146,9 +145,8 @@
 <div id="authModal" class="modal"><div class="modal-content" id="authModalContent"></div></div>
 <div id="adminModal" class="modal"><div class="modal-content" id="adminModalContent" style="max-width: 750px;"></div></div>
 
-<!-- Header thu gọn -->
 <div class="shop-info-header">
-    <div class="shop-name"><i class="fas fa-store"></i> TEEDYY STORE - Shop Acc Free Fire Số 1</div>
+    <div class="shop-name"><i class="fas fa-store"></i> TEEDYY STORE - Shop Acc Game Số 1</div>
     <div class="support-info"><i class="fas fa-headset"></i> Hotline: 0373516403 <span>Zalo 24/7</span></div>
 </div>
 
@@ -157,18 +155,21 @@
     <div class="cat-tab" data-cat="regular"><i class="fas fa-fire"></i> ACC Giá Rẻ</div>
     <div class="cat-tab" data-cat="mystery"><i class="fas fa-gift"></i> Túi Mù FF</div>
     <div class="cat-tab" data-cat="fakeLag"><i class="fas fa-tachometer-alt"></i> FAKE LAG</div>
+    <div class="cat-tab" data-cat="bloxfruit"><i class="fab fa-pagelines"></i> Blox Fruit</div>
+    <div class="cat-tab" data-cat="fcmobile"><i class="fas fa-futbol"></i> FC Mobile</div>
+    <div class="cat-tab" data-cat="roblox"><i class="fab fa-steam"></i> Roblox</div>
 </div>
 
 <div class="products-container"><div class="product-grid" id="dynamicProductGrid"></div></div>
 
 <div class="footer-enhanced">
     <div class="footer-grid">
-        <div class="footer-col"><h4>Shop mua bán</h4><p>Túi Mù, Acc Free Fire, Kim Cương<br><strong>uy tín – giá tốt</strong></p></div>
-        <div class="footer-col"><h4>Đồng hành cùng</h4><p style="font-size:18px; font-weight:800; background: linear-gradient(135deg, var(--accent), var(--accent-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">TEEDYY STORE</p><p>– cộng đồng game thủ Free Fire</p></div>
+        <div class="footer-col"><h4>Shop mua bán</h4><p>Túi Mù, Acc Game, Robux<br><strong>uy tín – giá tốt</strong></p></div>
+        <div class="footer-col"><h4>Đồng hành cùng</h4><p style="font-size:18px; font-weight:800; background: linear-gradient(135deg, var(--accent), var(--accent-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">TEEDYY STORE</p><p>– cộng đồng game thủ đông đảo</p></div>
         <div class="footer-col"><h4>Hệ thống giao dịch</h4><p><i class="fas fa-bolt"></i> tự động 24/7<br><i class="fas fa-envelope"></i> nhận tài khoản ngay</p></div>
         <div class="footer-col"><h4>Thời gian hỗ trợ</h4><p>08:00 - 12:00 | 12:30 - 22:00</p></div>
     </div>
-    <div class="copyright"p><p>© 2025 TEEDYYSTORE.Tất cả quyền được bảo lưu</p></div>
+    <div class="copyright"><p>© 2025 TEEDYY STORE - Tất cả quyền được bảo lưu</p></div>
 </div>
 
 <script>
@@ -188,12 +189,12 @@
     const productsDB = {
         vip: [
             { name: "ACC VIP 6 - 7 ĐÁ - ĐỒ CỔ", price: 3290000, priceStr: "3.290.000đ", img: "https://shopbaanh.vn/uploads/05-02-2026/items/6/e0ec3929-6877-4ff8-81fd-9c7da392ba41.jpg" },
-            { name: "ACC VIP 8 - CHUYÊN NAM", price: 4549000, priceStr: "4.549.000đ", img: "https://shopbaanh.vn/uploads/24-02-2026/items/11/026f8b96-53a5-4227-895f-53c99747094b.jpg" }
+            { name: "ACC VIP 8 - CHUYÊN NAM", price: 4549000, priceStr: "4.549.000đ", img: "https://shopbaanh.vn/uploads/24-02-2026/items/11/026f8b96-53a5-4227-895f-53c99747094b.jpg" },
+            { name: "ACC VIP 5 - FULL THẺ VÔ CỰC", price: 1500000, priceStr: "1.590.000đ", img: "https://shopbaanh.vn/uploads/20-05-2026/items/4/285f91e8-cd35-4af5-bd5e-d7c106837fa8.jpg" }
         ],
         regular: [
-            { name: "ACC VIP 5 - 4 KHẨU NÂNG CẤP ", priceStr: 2350000, priceStr: "2.350.000đ", img: "https://shopbaanh.vn/uploads/09-03-2026/items/5/532d495e-888e-4f81-ac88-221a059ae2c7.jpg" },
-            { name: "ACC VIP 4 - 3 KHẨU NÂNG CẤP", priceStr: 749000, priceStr: "749.000đ", img: "https://shopbaanh.vn/uploads/09-03-2026/items/5/760cdc5d-99ab-4b84-ab7c-754dab742541.jpg" },
-            { name: "ACC VIP 5 - FULL THẺ VÔ CỰC", price: 1500000, priceStr: "1.590.000đ", img: "https://shopbaanh.vn/uploads/20-05-2026/items/4/285f91e8-cd35-4af5-bd5e-d7c106837fa8.jpg" }
+            { name: "ACC VIP 5 - 4 KHẨU NÂNG CẤP", price: 2350000, priceStr: "2.350.000đ", img: "https://shopbaanh.vn/uploads/09-03-2026/items/5/532d495e-888e-4f81-ac88-221a059ae2c7.jpg" },
+            { name: "ACC VIP 4 - 3 KHẨU NÂNG CẤP", price: 749000, priceStr: "749.000đ", img: "https://shopbaanh.vn/uploads/09-03-2026/items/5/760cdc5d-99ab-4b84-ab7c-754dab742541.jpg" }
         ],
         mystery: [
             { name: "Túi Mù FF 149k", price: 149000, priceStr: "149.000đ", img: "https://cdn.taphoafifai.com/upload/component/844732739745337344.gif?v=", isMystery: true },
@@ -207,6 +208,28 @@
             { name: "FAKE LAG NET PLUS VIP", price: 29000, priceStr: "29.000đ", img: "https://cdn.zermango.com/downloads/zermango/img_0888-1778839576993.webp" },
             { name: "Acc Lv5 Google", price: 5000, priceStr: "5.000đ", img: "https://cdn.zermango.com/downloads/zermango/img_0890-1778839545843.webp" },
             { name: "Rank Kim Cương Tử Chiến", price: 25000, priceStr: "25.000đ", img: "https://cdn.zermango.com/downloads/zermango/z7828362482473_e154df4e57fd9048f2c33d07a7b659bb-1778860693657.webp" }
+        ],
+        bloxfruit: [
+            { name: "FULL TỘC V4 FULL GEAR", price: 99000, priceStr: "99.000đ", img: "https://accgamexin.store/upload/product/21352cadad7260083a3f1e4dad74e9c9.png" },
+            { name: "ACC BLOX FRUIT", price: 450000, priceStr: "450.000đ", img: "https://accgamexin.store/upload/product/fb3503dd25eb2db04d2199563ec7a2ce.png" },
+            { name: "ACC BLOX FRUIT", price: 149000, priceStr: "149.000đ", img: "https://accgamexin.store/upload/product/58117c688c5915391f6aaf836dfcc216.png" },
+            { name: "4 TỘC V4 FULL GEAR", price: 99000, priceStr: "99.000đ", img: "https://accgamexin.store/upload/product/18b285e89a8de7666bdd27824ab2ea78.png" },
+            { name: "TÚI MÙ THỜI THƯỢNG", price: 499000, priceStr: "499.000đ", img: "https://accgamexin.store/upload/product/b25ecab85dc1ed62e314abae97de3916.gif", isMystery: true }
+        ],
+        fcmobile: [
+            { name: "ACC FC MOBILE ĐANG GIẢM GIÁ", price: 100000, priceStr: "100.000đ", img: "https://shopgamefcm.com/upload/product/2578c3d804b0acae60ac71a0ce3a1dff.gif" },
+            { name: "ACC FC MOBILE ĐANG GIẢM GIÁ", price: 50000, priceStr: "50.000đ", img: "https://shopgamefcm.com/upload/product/d941d5d490489a0ad29f7bafff780e94.gif" },
+            { name: "ACC FC MOBILE ĐANG GIẢM GIÁ", price: 20000, priceStr: "20.000đ", img: "https://shopgamefcm.com/upload/product/c8ed1bde9d253f2156eead323ac6eb48.gif" }
+        ],
+        roblox: [
+            { name: "GÓI 40 ROBUX", price: 7000, priceStr: "7.000đ", img: "https://stc-sot.vcdn.vn/ws-content/uploads//ROBLOX-ZINGPAY-1-LIVE/image/product/1449442527483662336.png" },
+            { name: "GÓI 80 ROBUX", price: 14000, priceStr: "14.000đ", img: "https://stc-sot.vcdn.vn/ws-content/uploads//ROBLOX-ZINGPAY-1-LIVE/image/product/1449442583855108096.png" },
+            { name: "GÓI 500 ROBUX", price: 70000, priceStr: "70.000đ", img: "https://stc-sot.vcdn.vn/ws-content/uploads//ROBLOX-ZINGPAY-1-LIVE/image/product/1449442701987680256.png" },
+            { name: "GÓI 1000 ROBUX", price: 140000, priceStr: "140.000đ", img: "https://stc-sot.vcdn.vn/ws-content/uploads//ROBLOX-ZINGPAY-1-LIVE/image/product/1449442777103470592.png" },
+            { name: "GÓI 2000 ROBUX", price: 280000, priceStr: "280.000đ", img: "https://stc-sot.vcdn.vn/ws-content/uploads//ROBLOX-ZINGPAY-1-LIVE/image/product/1449443027092377600.png" },
+            { name: "GÓI 5250 ROBUX", price: 560000, priceStr: "560.000đ", img: "https://stc-sot.vcdn.vn/ws-content/uploads//ROBLOX-ZINGPAY-1-LIVE/image/product/1449443305443168256.png" },
+            { name: "GÓI 11000 ROBUX", price: 1400000, priceStr: "1.400.000đ", img: "https://stc-sot.vcdn.vn/ws-content/uploads//ROBLOX-ZINGPAY-1-LIVE/image/product/1449443382232485888.png" },
+            { name: "GÓI 24000 ROBUX", price: 2800000, priceStr: "2.800.000đ", img: "https://stc-sot.vcdn.vn/ws-content/uploads//ROBLOX-ZINGPAY-1-LIVE/image/product/1449443439652507648.png" }
         ]
     };
 
@@ -221,13 +244,13 @@
 
     // Tạo tài khoản demo
     if(!users.find(u => u.username === 'nicewomen99@gmail.com')) {
-        users.push({ username: 'nicewomen99@gmail.com', password: 'notabadboy1', balance: 1500000, isAdmin: false, createdAt: new Date().toISOString(), phone: '0393399533', email: 'nicewomen99@gmail.com' });
+        users.push({ username: 'nicewomen99@gmail.com', password: 'notabadboy1', balance: 2500000, isAdmin: false, createdAt: new Date().toISOString(), phone: '0393399533', email: 'nicewomen99@gmail.com' });
     }
     const demoHistory = purchaseHistory.filter(h => h.username === 'nicewomen99@gmail.com');
     if(demoHistory.length === 0) {
-        purchaseHistory.push({ id: 'FF' + Math.floor(Math.random()*10000000).toString().padStart(7, '0'), username: 'nicewomen99@gmail.com', productName: 'ACC Siêu Cấp - 2000$', price: 1290000, priceStr: '1.290.000đ', time: new Date(Date.now() - 7*24*60*60*1000).toISOString() });
+        purchaseHistory.push({ id: 'FF' + Math.floor(Math.random()*10000000).toString().padStart(7, '0'), username: 'nicewomen99@gmail.com', productName: 'ACC VIP 6 - 7 ĐÁ - ĐỒ CỔ', price: 3290000, priceStr: '3.290.000đ', time: new Date(Date.now() - 7*24*60*60*1000).toISOString() });
         purchaseHistory.push({ id: 'FF' + Math.floor(Math.random()*10000000).toString().padStart(7, '0'), username: 'nicewomen99@gmail.com', productName: 'Túi Mù FF 199k', price: 199000, priceStr: '199.000đ', time: new Date(Date.now() - 3*24*60*60*1000).toISOString() });
-        purchaseHistory.push({ id: 'FF' + Math.floor(Math.random()*10000000).toString().padStart(7, '0'), username: 'nicewomen99@gmail.com', productName: 'ACC Kim Cương 200k', price: 549000, priceStr: '549.000đ', time: new Date(Date.now() - 1*24*60*60*1000).toISOString() });
+        purchaseHistory.push({ id: 'FF' + Math.floor(Math.random()*10000000).toString().padStart(7, '0'), username: 'nicewomen99@gmail.com', productName: 'GÓI 500 ROBUX', price: 70000, priceStr: '70.000đ', time: new Date(Date.now() - 1*24*60*60*1000).toISOString() });
     }
 
     if(users.length === 0 || !users.find(u => u.username === ADMIN_USERNAME)) {
@@ -243,7 +266,7 @@
         else sessionStorage.removeItem('teedyy_currentUser');
     }
 
-    function generateOrderId() { return 'FF' + Math.floor(Math.random() * 10000000).toString().padStart(7, '0'); }
+    function generateOrderId() { return 'TD' + Math.floor(Math.random() * 10000000).toString().padStart(7, '0'); }
 
     function updateBalanceUI() { 
         const balanceElem = document.getElementById('balanceDisplay');
@@ -266,7 +289,7 @@
         content.innerHTML = `
             <span class="close-modal" onclick="document.getElementById('historyModal').style.display='none'">&times;</span>
             <h2 style="font-size:20px; margin-bottom:16px;"><i class="fas fa-history"></i> Lịch sử mua hàng</h2>
-            <p style="color: var(--text-muted); margin-bottom: 16px; font-size:13px;">Cảm ơn bạn đã ủng hộ TEEDYY!</p>
+            <p style="color: var(--text-muted); margin-bottom: 16px; font-size:13px;">Cảm ơn bạn đã ủng hộ TEEDYY STORE!</p>
             ${userHistory.length === 0 ? '<div style="text-align:center; padding:30px;"><i class="fas fa-shopping-bag fa-3x" style="color:var(--text-muted);"></i><p style="margin-top:12px;">Bạn chưa có đơn hàng nào</p></div>' : 
             userHistory.map(item => `
                 <div class="history-item">
@@ -277,7 +300,7 @@
                 </div>
             `).join('')}
             <div style="margin-top: 16px; padding: 10px; background: linear-gradient(135deg, rgba(155,89,182,0.1), rgba(0,0,0,0.2)); border-radius: 10px; text-align: center; font-size:12px;">
-                <i class="fas fa-heart" style="color: var(--accent);"></i> Cảm ơn bạn đã tin tưởng TEEDYY!
+                <i class="fas fa-heart" style="color: var(--accent);"></i> Cảm ơn bạn đã tin tưởng TEEDYY STORE!
             </div>
         `;
         modal.style.display = 'flex';
@@ -378,7 +401,7 @@
 
     function escapeHtml(str) { return str.replace(/[&<>]/g, function(m) { if(m === '&') return '&amp;'; if(m === '<') return '&lt;'; if(m === '>') return '&gt;'; return m; }); }
 
-    // ========== MODAL NẠP THẺ (CHỈ CÒN NẠP THẺ CÀO, ĐÃ XÓA NGÂN HÀNG) ==========
+    // ========== MODAL NẠP THẺ ==========
     let selectedProvider = 'VIETTEL', selectedValue = 10000;
     function openRechargeModal() {
         if(!currentUser) { showToast('Vui lòng đăng nhập để nạp thẻ!', 'error'); openLoginModal(); return; }
@@ -412,13 +435,13 @@
     function openLoginModal() { renderLoginForm(); document.getElementById('authModal').style.display = 'flex'; }
     function renderLoginForm() {
         const content = document.getElementById('authModalContent');
-        content.innerHTML = `<span class="close-modal" onclick="document.getElementById('authModal').style.display='none'">&times;</span><h2 style="font-size:20px;"># Đăng nhập</h2><div class="modal-sub" style="color:var(--text-muted); margin-bottom:16px;">Chào mừng bạn trở lại </div><div class="error-msg" id="errorMsg" style="display:none; color:#ff8888; margin-bottom:12px; padding:8px; background:rgba(214,48,49,0.1); border-radius:10px; font-size:12px;"></div><div class="input-group"><label>Tên đăng nhập / Email</label><input type="text" id="loginUsername" placeholder="Nhập tên đăng nhập hoặc email"></div><div class="input-group"><label>Mật khẩu</label><input type="password" id="loginPassword" placeholder="Mật khẩu"></div><button class="btn-auth" id="submitLoginBtn">Đăng nhập →</button><div style="display:flex; align-items:center; gap:12px; margin:16px 0;"><div style="flex:1; height:1px; background:var(--border);"></div><span style="color:var(--text-muted); font-size:12px;">hoặc</span><div style="flex:1; height:1px; background:var(--border);"></div></div><div class="switch-mode" id="switchToRegister" style="text-align:center; cursor:pointer; font-size:13px;">Chưa có tài khoản? <span style="color:var(--accent);">Đăng ký ngay</span></div>`;
+        content.innerHTML = `<span class="close-modal" onclick="document.getElementById('authModal').style.display='none'">&times;</span><h2 style="font-size:20px;"># Đăng nhập</h2><div class="modal-sub" style="color:var(--text-muted); margin-bottom:16px;">Chào mừng bạn trở lại TEEDYY STORE</div><div class="error-msg" id="errorMsg" style="display:none; color:#ff8888; margin-bottom:12px; padding:8px; background:rgba(214,48,49,0.1); border-radius:10px; font-size:12px;"></div><div class="input-group"><label>Tên đăng nhập / Email</label><input type="text" id="loginUsername" placeholder="Nhập tên đăng nhập hoặc email"></div><div class="input-group"><label>Mật khẩu</label><input type="password" id="loginPassword" placeholder="Mật khẩu"></div><button class="btn-auth" id="submitLoginBtn">Đăng nhập →</button><div style="display:flex; align-items:center; gap:12px; margin:16px 0;"><div style="flex:1; height:1px; background:var(--border);"></div><span style="color:var(--text-muted); font-size:12px;">hoặc</span><div style="flex:1; height:1px; background:var(--border);"></div></div><div class="switch-mode" id="switchToRegister" style="text-align:center; cursor:pointer; font-size:13px;">Chưa có tài khoản? <span style="color:var(--accent);">Đăng ký ngay</span></div>`;
         document.getElementById('submitLoginBtn')?.addEventListener('click', handleLogin);
         document.getElementById('switchToRegister')?.addEventListener('click', renderRegisterForm);
     }
     function renderRegisterForm() {
         const content = document.getElementById('authModalContent');
-        content.innerHTML = `<span class="close-modal" onclick="document.getElementById('authModal').style.display='none'">&times;</span><h2 style="font-size:20px;">Tạo tài khoản</h2><div class="modal-sub" style="color:var(--text-muted); margin-bottom:16px;">Tham gia TEEDYY ngay hôm nay</div><div class="error-msg" id="errorMsg" style="display:none; color:#ff8888; margin-bottom:12px; padding:8px; background:rgba(214,48,49,0.1); border-radius:10px; font-size:12px;"></div><div class="input-group"><label>Tên đăng nhập / Email</label><input type="text" id="regUsername" placeholder="username hoặc email"></div><div class="input-group"><label>Số điện thoại</label><input type="tel" id="regPhone" placeholder="Số điện thoại (không bắt buộc)"></div><div class="input-group"><label>Mật khẩu</label><input type="password" id="regPassword" placeholder="Mật khẩu"></div><div class="input-group"><label>Xác nhận mật khẩu</label><input type="password" id="regConfirmPassword" placeholder="Xác nhận"></div><button class="btn-auth" id="submitRegisterBtn">Đăng ký</button><div class="switch-mode" id="switchToLogin" style="text-align:center; margin-top:16px; cursor:pointer; font-size:13px;">Đã có tài khoản? <span style="color:var(--accent);">Đăng nhập</span></div>`;
+        content.innerHTML = `<span class="close-modal" onclick="document.getElementById('authModal').style.display='none'">&times;</span><h2 style="font-size:20px;">Tạo tài khoản</h2><div class="modal-sub" style="color:var(--text-muted); margin-bottom:16px;">Tham gia TEEDYY STORE ngay hôm nay</div><div class="error-msg" id="errorMsg" style="display:none; color:#ff8888; margin-bottom:12px; padding:8px; background:rgba(214,48,49,0.1); border-radius:10px; font-size:12px;"></div><div class="input-group"><label>Tên đăng nhập / Email</label><input type="text" id="regUsername" placeholder="username hoặc email"></div><div class="input-group"><label>Số điện thoại</label><input type="tel" id="regPhone" placeholder="Số điện thoại (không bắt buộc)"></div><div class="input-group"><label>Mật khẩu</label><input type="password" id="regPassword" placeholder="Mật khẩu"></div><div class="input-group"><label>Xác nhận mật khẩu</label><input type="password" id="regConfirmPassword" placeholder="Xác nhận"></div><button class="btn-auth" id="submitRegisterBtn">Đăng ký</button><div class="switch-mode" id="switchToLogin" style="text-align:center; margin-top:16px; cursor:pointer; font-size:13px;">Đã có tài khoản? <span style="color:var(--accent);">Đăng nhập</span></div>`;
         document.getElementById('submitRegisterBtn')?.addEventListener('click', handleRegister);
         document.getElementById('switchToLogin')?.addEventListener('click', renderLoginForm);
     }
@@ -436,7 +459,7 @@
         saveAllData();
         document.getElementById('authModal').style.display='none';
         updateUIAfterLogin();
-        showToast(`✅ Chào mừng ${user.username} đã quay trở lại TEEDYY!`, 'success');
+        showToast(`✅ Chào mừng ${user.username} đã quay trở lại TEEDYY STORE!`, 'success');
     }
     function handleRegister() {
         const username = document.getElementById('regUsername')?.value.trim();
@@ -455,7 +478,7 @@
         currentUser = null; 
         saveAllData(); 
         updateUIAfterLogin(); 
-        showToast('🔓 Đã đăng xuất khỏi TEEDYY!', 'info');
+        showToast('🔓 Đã đăng xuất khỏi TEEDYY STORE!', 'info');
     }
     function updateUIAfterLogin() {
         updateBalanceUI(); updateUnreadBadge();
